@@ -37,7 +37,15 @@
     - role: diodonfrost.p10k
       when: configure_p10k
       tags: ['p10k']
-  tasks:   
+  tasks:
+    - name: Install linux packages
+      tags: ['linux']
+      become: true
+      package: 
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ linux_packages }}"
+
     - name: Add dotfiles to path
       tags: ['paths']
       blockinfile: 

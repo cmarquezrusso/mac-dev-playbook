@@ -98,7 +98,6 @@ homebrew_installed_packages:
   - imlib2  # Image loading and rendering library
   - iperf3  # Update of iperf: measures TCP, UDP, and SCTP bandwidth
   - isl  # Integer Set Library for the polyhedral model
-  - jansson  # C library for encoding, decoding, and manipulating JSON
   - jasper  # Library for manipulating JPEG-2000 images
   - jbig2dec  # JBIG2 decoder and library (for monochrome documents)
   - john  # Featureful UNIX password cracker
@@ -288,6 +287,9 @@ asdf_plugins:
   global: "3.2.8"
 
 - name: "bat"
+  versions:
+    - "0.23.0"
+  global: "0.23.0"
 
 - name: "cheat"
   versions:
@@ -315,15 +317,14 @@ asdf_plugins:
   global: "1.7.0"
 
 - name: "helmfile"
-
-- name: "helmsman"
+  versions:
+    - "0.155.0"
+  global: "0.155.0"
 
 - name: "k3d"
   versions:
     - "5.3.0"
   global: "5.3.0"
-
-- name: "k3sup"
 
 - name: "k9s"
   versions:
@@ -331,6 +332,9 @@ asdf_plugins:
   global: "0.25.18"
 
 - name: "krew"
+  versions:
+    - "0.4.4"
+  global: "0.4.4"
 
 - name: "kube-capacity"
   versions:
@@ -339,6 +343,7 @@ asdf_plugins:
 
 - name: "kubectl"
   versions:
+    - "1.27.2"
     - "1.23.3"
   global: "1.23.3"
 
@@ -391,11 +396,45 @@ asdf_plugins:
   versions:
     - "1.9.3+ent"
   global: "1.9.3+ent"
-
-- name: "velero"
-
 # Configure shell
 asdf_init_shell: false
+
+# Linux packages (APT for now to reeplace homebrew logic)
+linux_packages:
+  - ansible 
+  - automake 
+  - awscli 
+  - axel 
+  - binwalk 
+  - coreutils 
+  - cowsay 
+  - curl 
+  - dav1d 
+  - dbus 
+  - dialog 
+  - python3-docutils 
+  - ffmpeg 
+  - figlet 
+  - findutils 
+  - git 
+  - git-lfs 
+  - hydra 
+  - imagemagick 
+  - john 
+  - moreutils 
+  - mplayer 
+  - mtr 
+  - pandoc 
+  - pv 
+  - socat 
+  - tcpflow 
+  - telnet 
+  - tree 
+  - unzip 
+  - procps 
+  - youtube-dl
+  - zsh
+
 
 install_ohmyzsh: true
 ohmyzsh_theme: powerlevel10k/powerlevel10k
