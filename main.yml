@@ -37,7 +37,18 @@
     - role: diodonfrost.p10k
       when: configure_p10k
       tags: ['p10k']
-  tasks:
+  tasks:   
+    - name: Add dotfiles to path
+      tags: ['paths']
+      blockinfile: 
+        state: present
+        insertafter: EOF
+        dest: ~/.zshrc
+        marker: "# {mark} LOAD PATH - ANSIBLE MANAGED BLOCK"
+        content: |
+          for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,dockerapps,kubectl_aliases}; do
+            [ -r "$file" ] && [ -f "$file" ] && source "$file";
+          done;
     - import_tasks: tasks/sudoers.yml
       when: configure_sudoers
       tags: ['sudoers']

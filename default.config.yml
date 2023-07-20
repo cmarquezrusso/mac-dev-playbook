@@ -410,5 +410,5 @@ ohmyzsh_plugins:
   - nmap
   - python
   - ssh-agent
-configure_p10k: false
+configure_p10k: true
 zsh_plugin: ohmyzsh
