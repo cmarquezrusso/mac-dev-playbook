@@ -48,15 +48,12 @@ dotfiles_files:
 homebrew_clear_cache: true
 homebrew_installed_packages:
   - ansible  # Automate deployment, configuration, and upgrading
-  - argocd  # GitOps Continuous Delivery for Kubernetes
   - asciinema  # Record and share terminal sessions
-  - asdf  # Extendable version manager with support for Ruby, Node.js, Erlang & more
   - autoconf  # Automatic configure script builder
   - automake  # Tool for generating GNU Standards-compliant Makefiles
   - awscli  # Official Amazon AWS command-line interface
   - axel  # Light UNIX download accelerator
   - binwalk  # Searches a binary image for embedded files and executable code
-  - bitwarden-cli  # Secure and free password manager for all of your devices
   - ca-certificates  # Mozilla CA certificate store
   - coreutils  # GNU File, Shell, and Text utilities
   - cowsay  # Configurable talking characters in ASCII art
@@ -67,7 +64,6 @@ homebrew_installed_packages:
   - docutils  # Text processing system for reStructuredText
   - esphome  # Make creating custom firmwares for ESP32/ESP8266 super easy
   - fdupes  # Identify or delete duplicate files
-  - ffmpeg  # Play, record, convert, and stream audio and video
   - figlet  # Banner-like program prints strings as ASCII art
   - findutils  # Collection of GNU find, xargs, and locate
   - fmt  # Open-source formatting library for C++
@@ -79,7 +75,6 @@ homebrew_installed_packages:
   - gnu-getopt  # Command-line option parsing utility
   - gnuplot  # Command-driven, interactive function plotting
   - gnutls  # GNU Transport Layer Security (TLS) Library
-  - go  # Open source programming language to build simple/reliable/efficient software
   - gpac  # Multimedia framework for research and academic purposes
   - graphite2  # Smart font renderer for non-Roman scripts
   - grep  # GNU grep, egrep and fgrep
@@ -105,15 +100,11 @@ homebrew_installed_packages:
   - jpeg-turbo  # JPEG image codec that aids compression and decompression
   - jpeg-xl  # New file format for still image compression
   - jq  # Lightweight and flexible command-line JSON processor
-  - kompose  # Tool to move from `docker-compose` to Kubernetes
-  - kube-ps1  # Kubernetes prompt info for bash and zsh
-  - kubernetes-cli  # Kubernetes command-line interface
   - logstalgia  # Web server access log visualizer with retro style
   - mas  # Mac App Store command-line interface
   - mbedtls  # Cryptographic & SSL/TLS library
   - midnight-commander  # Terminal-based visual file manager
   - minicom  # Menu-driven communications program
-  - minikube  # Run a Kubernetes cluster locally
   - miniupnpc  # UPnP IGD client library and daemon
   - moreutils  # Collection of tools that nobody wrote when UNIX was young
   - mplayer  # UNIX movie player
@@ -121,8 +112,6 @@ homebrew_installed_packages:
   - ncurses  # Text-based UI library
   - nettle  # Low-level cryptographic library
   - nmap  # Port scanning utility for large networks
-  - node  # Platform built on V8 to build network applications
-  - nvm  # Manage multiple Node.js versions
   - p7zip  # 7-Zip (high compression file archiver) implementation
   - pandoc  # Swiss-army knife of markup format conversion
   - pillow  # Friendly PIL fork (Python Imaging Library)
@@ -136,23 +125,34 @@ homebrew_installed_packages:
   - sshuttle  # Proxy server that works as a poor man's VPN
   - tcpflow  # TCP/IP packet demultiplexer
   - telnet  # User interface to the TELNET protocol
-  - tesseract  # OCR (Optical Character Recognition) engine
   - theora  # Open video compression format
   - tmux  # Terminal multiplexer
   - tree  # Display directories as trees (with optional color/HTML output)
   - unzip  # Extraction utility for .zip compressed archives
-  - velero  # Disaster recovery for Kubernetes resources and persistent volumes
   - wakeonlan  # Sends magic packets to wake up network-devices
   - watch  # Executes a program periodically, showing output fullscreen
   - websocat  # Command-line client for WebSockets
   - wget  # Internet file retriever
   - youtube-dl  # Download YouTube videos from the command-line
 homebrew_uninstalled_packages:
+  - node  # Platform built on V8 to build network applications
+  - nvm  # Manage multiple Node.js versions
   - docker-machine  # Create Docker hosts locally and on cloud providers
   - docker-machine-driver-hyperkit  # Docker Machine driver for hyperkit
   - docker-machine-driver-xhyve  # Docker Machine driver for xhyve
   - helm@2  # Kubernetes package manager
   - kubernetes-helm  # Kubernetes package manager
+  - tesseract  # OCR (Optical Character Recognition) engine
+  - velero  # Disaster recovery for Kubernetes resources and persistent volumes
+  - argocd  # GitOps Continuous Delivery for Kubernetes
+  - go  # Open source programming language to build simple/reliable/efficient software
+  - asdf  # Extendable version manager with support for Ruby, Node.js, Erlang & more
+  - kompose  # Tool to move from `docker-compose` to Kubernetes
+  - kube-ps1  # Kubernetes prompt info for bash and zsh
+  - kubernetes-cli  # Kubernetes command-line interface
+  - bitwarden-cli  # Secure and free password manager for all of your devices
+  - ffmpeg  # Play, record, convert, and stream audio and video
+  - minikube  # Run a Kubernetes cluster locally
 
 
 homebrew_taps:
@@ -164,7 +164,6 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - adobe-acrobat-reader  # https://acrobat.adobe.com/us/en/acrobat/pdf-reader.html
   - arduino  # https://www.arduino.cc/
-  - bitwarden  # https://bitwarden.com/
   - coconutbattery  # https://www.coconut-flavour.com/coconutbattery/
   - discord  # https://discord.com/
   - docker  # Pack, ship and run any application as a lightweight container
@@ -184,6 +183,7 @@ homebrew_cask_apps:
   - yubico-yubikey-personalization-gui  # https://www.yubico.com/products/services-software/personalization-tools/use/
 
 homebrew_cask_uninstalled_apps:
+  - bitwarden  # https://bitwarden.com/
   - brave-browser  # https://brave.com/
   - chromedriver  # https://sites.google.com/chromium.org/driver/  
   - dropbox  # https://www.dropbox.com/
@@ -232,9 +232,11 @@ gem_packages: []
   # - name: bundler
   #   state: present # present/absent/latest, default: present
   #   version: "~> 1.15.1" # default: N/A
-npm_packages:
-  - name: gtop
-    state: absent # present/absent/latest, default: present
+npm_packages: []
+  # - name: gtop
+  #   state: present # present/absent/latest, default: present
+  # - name: bitwarden/cli
+  #   state: present
   # - name: webpack
   #   state: present # present/absent/latest, default: present
   #   version: "^2.6" # default: N/A
@@ -285,10 +287,10 @@ asdf_plugins:
     - "3.2.8"
   global: "3.2.8"
 
-- name: "bat"
-  versions:
-    - "0.23.0"
-  global: "0.23.0"
+# - name: "bat"
+#   versions:
+#     - "0.23.0"
+#   global: "0.23.0"
 
 - name: "cheat"
   versions:

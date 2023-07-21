@@ -33,7 +33,6 @@
     - role: diodonfrost.ohmyzsh
       when: install_ohmyzsh
       tags: ['ohmyzsh']
-      become: yes
     - role: diodonfrost.p10k
       when: configure_p10k
       tags: ['p10k']
@@ -41,6 +40,7 @@
     - name: Install linux packages
       tags: ['linux']
       become: true
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
       package: 
         name: "{{ item }}"
         state: present
