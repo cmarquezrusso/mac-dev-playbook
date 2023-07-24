@@ -20,6 +20,7 @@ dotfiles_files:
   - .bash_prompt
   - .bashrc
   - .cobra.yaml
+  - .archey-config.json
   - .curlrc
   - .dockerapps
   - .editorconfig
