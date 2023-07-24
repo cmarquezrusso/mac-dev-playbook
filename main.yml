@@ -33,6 +33,7 @@
     - role: diodonfrost.ohmyzsh
       when: install_ohmyzsh
       tags: ['ohmyzsh']
+      become: "{{ 'false' if ansible_distribution == 'MacOSX' else 'true' }}"
     - role: diodonfrost.p10k
       when: configure_p10k
       tags: ['p10k']

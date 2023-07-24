@@ -427,7 +427,8 @@ linux_packages:
   - mplayer 
   - mtr 
   - pandoc 
-  - pv 
+  - pv
+  - ssh-askpass
   - socat 
   - tcpflow 
   - telnet 
